@@ -524,6 +524,14 @@ A      test.mysite.com.         55.66.77.88
 CNAME  www.mysite.com.          mysite.com
 ```
 
+### List NS records
+
+aws route53 list-resource-record-sets --hosted-zone-id /hostedzone/Z033359710IW1QOY5J9TW  | jq -r '.ResourceRecordSets[]| select (.TTL >= 172800)' | jq '.ResourceRecords[].Value' 
+"ns-520.awsdns-01.net."
+"ns-1128.awsdns-13.org."
+"ns-171.awsdns-21.com."
+"ns-1772.awsdns-29.co.uk."
+
 ## SNS
 
 #### List of SNS Topics
