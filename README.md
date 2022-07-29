@@ -880,3 +880,14 @@ aws iam list-groups-for-user --user-name qa-bob
 aws iam detach-group-policy --group-name business-ro --policy-arn arn:aws:iam::aws:policy/DynamoDBFullAccess
 aws iam attach-group-policy --group-name business-ro --policy-arn arn:aws:iam::aws:policy/DynamoDBFullAccess
 ```
+
+
+#### Direct connect 
+
+###list DC connections details 
+```bash
+aws directconnect describe-connections   --region ap-south-1 | jq -r '.connections[]|.connectionId+"  ,  "+.location+"  ,  "+.awsDeviceV2+"  ,  "+.awsLogicalDeviceId+"  ,  "+.bandwidth'
+```
+
+
+
