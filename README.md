@@ -124,7 +124,8 @@
     + [List Users in a Group](#list-users-in-a-group)
     + [List Groups for a User](#list-groups-for-a-user)
     + [Attach/Detach Policy to a Group](#attach-detach-policy-to-a-group)
-
+- [AWS_Direct_connect](#directconnect)
+    + [List DC Connection details](#describe-connections)
 ### :information_source: Pro Tip!
 
 :point_right: If you have multiple AWS Accounts, you can use bash alias like the following. So you no longer need to pass `--profile` to `aws` tool.
@@ -882,9 +883,9 @@ aws iam attach-group-policy --group-name business-ro --policy-arn arn:aws:iam::a
 ```
 
 
-#### Direct connect 
+## AWS_Direct_connect
 
-###list DC connections details 
+### List DC Connection details
 ```bash
 aws directconnect describe-connections   --region ap-south-1 | jq -r '.connections[]|.connectionId+"  ,  "+.location+"  ,  "+.awsDeviceV2+"  ,  "+.awsLogicalDeviceId+"  ,  "+.bandwidth'
 ```
