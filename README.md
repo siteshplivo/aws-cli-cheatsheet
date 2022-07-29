@@ -808,6 +808,8 @@ aws iam delete-access-key --user-name audit-temp --access-key-id AKIABWIOJIQFOLN
 #### Activate/Deactivate Access Key for User
 ```bash
 aws iam update-access-key --status Inactive --user-name audit-temp --access-key-id AKIABWIOJIQFOLNBXXCVSUQ
+```
+```bash
 aws iam update-access-key --status Active   --user-name audit-temp --access-key-id AKIABWIOJIQFOLNBXXCVSUQ
 ```
 
@@ -831,13 +833,19 @@ marketing-ro
 #### Add/Delete Groups
 ```bash
 aws iam create-group --group-name business-ro
+```
+```bash
 aws iam delete-group --group-name business-ro
 ```
 
 #### List of Policies and ARNs
 ```bash
 aws iam list-policies               | jq -r '.Policies[]|.PolicyName+" "+.Arn'
+```
+```bash
 aws iam list-policies --scope AWS   | jq -r '.Policies[]|.PolicyName+" "+.Arn'
+```
+```bash
 aws iam list-policies --scope Local | jq -r '.Policies[]|.PolicyName+" "+.Arn'
 ```
 
@@ -879,6 +887,8 @@ aws iam list-groups-for-user --user-name qa-bob
 #### Attach/Detach Policy to a Group
 ```bash
 aws iam detach-group-policy --group-name business-ro --policy-arn arn:aws:iam::aws:policy/DynamoDBFullAccess
+```
+```bash
 aws iam attach-group-policy --group-name business-ro --policy-arn arn:aws:iam::aws:policy/DynamoDBFullAccess
 ```
 
