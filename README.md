@@ -126,6 +126,9 @@
     + [Attach/Detach Policy to a Group](#attach-detach-policy-to-a-group)
 - [AWS_Direct_connect](#directconnect)
     + [List DC Connection details](#describe-connections)
+- [AWS Quick Sight](#quicksight)
+    + [List quicksight users](#list-users)
+
 ### :information_source: Pro Tip!
 
 :point_right: If you have multiple AWS Accounts, you can use bash alias like the following. So you no longer need to pass `--profile` to `aws` tool.
@@ -892,6 +895,10 @@ aws iam detach-group-policy --group-name business-ro --policy-arn arn:aws:iam::a
 aws iam attach-group-policy --group-name business-ro --policy-arn arn:aws:iam::aws:policy/DynamoDBFullAccess
 ```
 
+### List quicksight users
+```bash
+aws quicksight list-users  --aws-account-id=425775279189  --namespace=default --region=us-east-1 |  jq  '.UserList[]|.UserName+";"+.Email+";"+.Role+";"+.IdentityType+";"+(.Active| tostring) '
+```
 
 ## AWS_Direct_connect
 
